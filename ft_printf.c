@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/24 16:52:23 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/24 22:14:19 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,37 @@ int format_checker(char format_specifier)
     return 0;
 }
 
-int	ft_printf(const char *intial_string, ...)
+int	ft_printf(const char *initial_string, ...)
 {
     
-    int i;
+    // int i;
     
-    i = 0;
-    while(intial_string[i])
+    // i = 0;
+    // while(intial_string[i])
+    // {
+    //     if (intial_string[i] == '%')
+    //     {
+    //         format_checker(intial_string[++i]);
+    //         i++;  
+    //     }
+    //     else
+    //     {
+    //         write(1, &intial_string[i++], 1);
+    //     } 
+    // }
+    
+    // return i;
+    
+    va_list list_of_arguments, copy_of_arguments;
+    va_start(list_of_arguments, initial_string);
+    va_copy(copy_of_arguments, list_of_arguments);
+    while (*initial_string)
     {
-        if (intial_string[i] == '%')
-        {
-            format_checker(intial_string[++i]);
-            i++;  
-        }
-        else
-        {
-            write(1, &intial_string[i++], 1);
-        } 
+        
+        write(1, initial_string++, 1);
     }
     
-    return i;
+    return 0;
 }
 
 
@@ -65,9 +76,7 @@ int	ft_printf(const char *intial_string, ...)
 int main()
 {
     printf("\n");
-    // ft_printf("Hi my name is bob. I am %d%% years old", 4);
-    printf("\n\n");
-    printf("Number of characters printed = %d", ft_printf("Hi my name is bob. I am %d%% years old", 4));
+    ft_printf("Hi my name is bob. I am %d %% years old", 4);
     printf("\n\n");
 
     return 0;
