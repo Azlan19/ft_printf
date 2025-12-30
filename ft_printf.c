@@ -6,32 +6,32 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/30 16:38:54 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/30 17:52:55 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
+#include "include/libft.h"
 
-int format_checker(char format_specifier)
+int format_checker(char format_specifier, va_list *ap)
 {
-    int d;
-    if (format_specifier == 'c')
-        write(1, "4", 1);
-    else if (format_specifier == 's')
-        write(1, "4", 1);
-    else if (format_specifier == 'p')
-        write(1, "4", 1);
-    else if (format_specifier == 'd' || format_specifier == 'i')
-        write(1, "4", 1);
-    else if (format_specifier == 'u')
-        write(1, "4", 1);
-    else if (format_specifier == 'x')
-        write(1, "4", 1);
-    else if (format_specifier == 'X')
-        write(1, "4", 1);
-    else if (format_specifier == '%')
+    if (format_specifier == 'c') //character
+        ft_putchar_fd(va_arg(*ap, int), 1);
+    else if (format_specifier == 's') //string
+        ft_putstr_fd(va_arg(*ap, char*), 1);
+    else if (format_specifier == 'p') //The void * pointer argument has to be printed in hexadecimal format.
+        write(1, "p", 1);
+    else if (format_specifier == 'd' || format_specifier == 'i') //number (base 10)
+        write(1, "d", 1);
+    else if (format_specifier == 'u') //unsigned decimal (base 10)
+        write(1, "u", 1);
+    else if (format_specifier == 'x') //hexadecimal lower case (base 16)
+        write(1, "x", 1);
+    else if (format_specifier == 'X') //hexadecimal upper case (base 16)
+        write(1, "X", 1);
+    else if (format_specifier == '%') //percent sign '%'
         write(1, "%", 1);
     else
         write(1, "Format Specifier Error", 22);
@@ -42,7 +42,9 @@ int format_checker(char format_specifier)
 int	ft_printf(const char *fmt, ...)
 {
     va_list ap;
-    int test;
+    int counter;
+
+    counter = 0;
     
     va_start(ap, fmt);
     while (*fmt)
@@ -53,14 +55,14 @@ int	ft_printf(const char *fmt, ...)
         }
         else
         {
-            test = va_arg(ap, int) + '0';
-            write(1, &test, 1);
             fmt++;
+            format_checker(*fmt, &ap);
         }
         fmt++;   
     }
+    va_end(ap);
     
-    return 0;
+    return counter;
 }
 
 
@@ -68,7 +70,7 @@ int	ft_printf(const char *fmt, ...)
 int main()
 {
     printf("\n");
-    ft_printf("Hi my name is bob. I am %d %d years old", 4, 8);
+    ft_printf("Hi my name is bob. I am %c '%s' years old", 'a', "Does it work??");
     printf("\n\n");
 
     return 0;
