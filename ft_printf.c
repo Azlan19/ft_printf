@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/30 21:15:11 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/30 22:55:11 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int format_checker(char format_specifier, va_list *ap)
     else if (format_specifier == 'X') //hexadecimal upper case (base 16)
         write(1, "X", 1);
     else if (format_specifier == '%') //percent sign '%'
+    {
         write(1, "%", 1);
+        return 1;
+    }
         
     return 0;
 }
@@ -80,9 +83,9 @@ int main()
     normal_counter = 0;
     my_counterr = 0;
     printf("\n");
-    normal_counter = printf("normal printf = %c", 'h');
+    normal_counter = printf("normal printf = %d", -2147483647);
     printf("\n");
-    my_counterr = ft_printf("my ft_printf  = %c", 'h');
+    my_counterr = ft_printf("my ft_printf  = %d", -2147483647);
     printf("\n");
     printf("\nnormal counter = %d", normal_counter);
     printf("\nmy counter     = %d", my_counterr);
