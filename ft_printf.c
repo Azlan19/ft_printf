@@ -6,14 +6,13 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/30 17:52:55 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/30 18:23:30 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
-#include "include/libft.h"
 
 int format_checker(char format_specifier, va_list *ap)
 {
