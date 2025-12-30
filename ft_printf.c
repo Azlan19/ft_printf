@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/24 22:14:19 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/30 16:38:54 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int format_checker(char format_specifier)
 {
+    int d;
     if (format_specifier == 'c')
         write(1, "4", 1);
     else if (format_specifier == 's')
@@ -38,34 +39,25 @@ int format_checker(char format_specifier)
     return 0;
 }
 
-int	ft_printf(const char *initial_string, ...)
+int	ft_printf(const char *fmt, ...)
 {
+    va_list ap;
+    int test;
     
-    // int i;
-    
-    // i = 0;
-    // while(intial_string[i])
-    // {
-    //     if (intial_string[i] == '%')
-    //     {
-    //         format_checker(intial_string[++i]);
-    //         i++;  
-    //     }
-    //     else
-    //     {
-    //         write(1, &intial_string[i++], 1);
-    //     } 
-    // }
-    
-    // return i;
-    
-    va_list list_of_arguments, copy_of_arguments;
-    va_start(list_of_arguments, initial_string);
-    va_copy(copy_of_arguments, list_of_arguments);
-    while (*initial_string)
+    va_start(ap, fmt);
+    while (*fmt)
     {
-        
-        write(1, initial_string++, 1);
+        if (*fmt != '%')
+        {
+            write(1, fmt, 1);
+        }
+        else
+        {
+            test = va_arg(ap, int) + '0';
+            write(1, &test, 1);
+            fmt++;
+        }
+        fmt++;   
     }
     
     return 0;
@@ -76,7 +68,7 @@ int	ft_printf(const char *initial_string, ...)
 int main()
 {
     printf("\n");
-    ft_printf("Hi my name is bob. I am %d %% years old", 4);
+    ft_printf("Hi my name is bob. I am %d %d years old", 4, 8);
     printf("\n\n");
 
     return 0;
