@@ -6,13 +6,11 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:07:54 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 12:45:54 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 13:01:49 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "printf.h"
 
 //format_specifier == 'c'
 int ft_printchar(va_list *ap)

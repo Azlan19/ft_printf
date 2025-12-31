@@ -6,18 +6,17 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/30 22:55:11 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 13:03:59 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
-#include "ft_print_args.c"
+#include "printf.h"
 
 int format_checker(char format_specifier, va_list *ap)
 {
     int d_i;
+    int x;
+    int X;
 
     if (format_specifier == 'c') //character
         return(ft_printchar(ap));
@@ -34,9 +33,17 @@ int format_checker(char format_specifier, va_list *ap)
     else if (format_specifier == 'u') //unsigned decimal (base 10)
         write(1, "u", 1);
     else if (format_specifier == 'x') //hexadecimal lower case (base 16)
-        write(1, "x", 1);
+    {
+        x = va_arg(*ap, int);
+        ft_print_lower_hex(x);
+        return(ft_hexlen(x));
+    }
     else if (format_specifier == 'X') //hexadecimal upper case (base 16)
-        write(1, "X", 1);
+    {
+        X = va_arg(*ap, int);
+        ft_print_upper_hex(X);
+        return(ft_hexlen(X));
+    }
     else if (format_specifier == '%') //percent sign '%'
     {
         write(1, "%", 1);
@@ -83,9 +90,9 @@ int main()
     normal_counter = 0;
     my_counterr = 0;
     printf("\n");
-    normal_counter = printf("normal printf = %d", -2147483647);
+    normal_counter = printf("normal printf = %X", 8888);
     printf("\n");
-    my_counterr = ft_printf("my ft_printf  = %d", -2147483647);
+    my_counterr = ft_printf("my ft_printf  = %X", 8888);
     printf("\n");
     printf("\nnormal counter = %d", normal_counter);
     printf("\nmy counter     = %d", my_counterr);
