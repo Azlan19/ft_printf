@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:58:13 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 16:45:45 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 17:00:16 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 // Includes -- END
 
-int		format_checker(char format_specifier, va_list *ap);
+int		format_checker(char fmt_spec, va_list *ap);
 int		ft_printf(const char *fmt, ...);
 
 int		ft_printchar(va_list *ap);
@@ -31,7 +31,7 @@ void	ft_printnum(int n);
 
 int		ft_hexlen(long num);
 
-void	ft_print_hex(long n, char format_specifier);
+void	ft_print_hex(long n, char fmt_spec);
 
 int		ft_unsintlen(unsigned int num);
 void	ft_printunsint(unsigned int n);

@@ -6,49 +6,37 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 13:49:09 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 16:58:42 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_checker(char format_specifier, va_list *ap)
+int	format_checker(char fmt_spec, va_list *ap)
 {
-	int	d_i;
-	int	x;
-	int	big_x;
+	long	n;
 
-	if (format_specifier == 'c')
+	if (fmt_spec == 'c')
 		return (ft_printchar(ap));
-	else if (format_specifier == 's')
+	else if (fmt_spec == 's')
 		return (ft_printstr(ap));
-	else if (format_specifier == 'p')
+	else if (fmt_spec == 'p')
 		write(1, "p", 1);
-	else if (format_specifier == 'd' || format_specifier == 'i')
+	else if (fmt_spec == 'd' || fmt_spec == 'i' || fmt_spec == 'u')
 	{
-		d_i = va_arg(*ap, int);
-		ft_print_num(d_i);
-		return (ft_intlen(d_i));
+		n = va_arg(*ap, int);
+		if (fmt_spec == 'd' || fmt_spec == 'i')
+			return (ft_printnum(n), ft_intlen(n));
+		else
+			return (ft_printunsint(n), ft_unsintlen(n));
 	}
-	else if (format_specifier == 'u')
-		write(1, "u", 1);
-	else if (format_specifier == 'x')
+	else if (fmt_spec == 'x' || fmt_spec == 'X')
 	{
-		x = va_arg(*ap, int);
-		ft_print_lower_hex(x);
-		return (ft_hexlen(x));
+		n = va_arg(*ap, int);
+		return (ft_print_hex(n, fmt_spec), ft_hexlen(n));
 	}
-	else if (format_specifier == 'X')
-	{
-		big_x = va_arg(*ap, int);
-		ft_print_upper_hex(big_x);
-		return (ft_hexlen(big_x));
-	}
-	else if (format_specifier == '%')
-	{
-		write(1, "%", 1);
-		return (1);
-	}
+	else if (fmt_spec == '%')
+		return (write(1, "%", 1));
 	return (0);
 }
 
@@ -85,9 +73,9 @@ int	ft_printf(const char *fmt, ...)
 // 	normal_counter = 0;
 // 	my_counterr = 0;
 // 	printf("\n");
-// 	normal_counter = printf("normal printf = %X", 8888);
+// 	normal_counter = printf("normal printf = %u", -2147483644);
 // 	printf("\n");
-// 	my_counterr = ft_printf("my ft_printf  = %X", 8888);
+// 	my_counterr = ft_printf("my ft_printf  = %u", -2147483644);
 // 	printf("\n");
 // 	printf("\nnormal counter = %d", normal_counter);
 // 	printf("\nmy counter     = %d", my_counterr);

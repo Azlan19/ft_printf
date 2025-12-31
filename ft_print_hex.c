@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:07:54 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 16:13:36 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 17:00:51 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	ft_hexlen(long num)
 	return (++counter);
 }
 
-void	ft_print_hex(long n, char format_specifier)
+void	ft_print_hex(long n, char fmt_spec)
 {
 	char	nbr;
 	char	*base_16;
 
-	if (format_specifier == 'x')
+	if (fmt_spec == 'x')
 		base_16 = "0123456789abcdef";
 	else
 		base_16 = "0123456789ABCDEF";
@@ -44,7 +44,7 @@ void	ft_print_hex(long n, char format_specifier)
 	}
 	if (n >= 16)
 	{
-		ft_print_hex(n / 16, format_specifier);
+		ft_print_hex(n / 16, fmt_spec);
 	}
 	nbr = base_16[(n % 16)];
 	write(1, &nbr, 1);
