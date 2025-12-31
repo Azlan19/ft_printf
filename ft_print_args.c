@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:07:54 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/30 21:35:20 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 12:34:06 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,46 @@ void	ft_print_num(int n)
 	}
 	nbr = (n % 10) + '0';
 	write(1, &nbr, 1);
+}
+
+
+//format_specifier == 'x'
+int ft_hexlen(int num)
+{
+    int counter;
+
+    counter = 0;
+    if (num < 0)
+    {
+        num = -num;
+        counter++;
+    } 
+    while (num > 16)
+    {
+        num = num / 16;
+        counter++;
+    }
+
+    return ++counter;
+}
+
+void ft_print_lower_hex(int n)
+{
+    char	nbr;
+    char	*base_16;
+
+    base_16 = "0123456789abcdef";
+
+	nbr = 0;
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= 16)
+	{
+		ft_print_lower_hex(n / 16);
+	}
+	nbr = base_16[(n % 16)];
+	write(1, &nbr, 1);   
 }
