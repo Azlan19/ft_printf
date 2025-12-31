@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:58:13 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 16:07:12 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 16:45:45 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	ft_printnum(int n);
 int		ft_hexlen(long num);
 
 void	ft_print_hex(long n, char format_specifier);
+
+int		ft_unsintlen(unsigned int num);
+void	ft_printunsint(unsigned int n);
 
 #endif

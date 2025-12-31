@@ -5,6 +5,7 @@ SRCS := \
 	ft_print_char.c \
 	ft_print_num.c \
 	ft_print_hex.c \
+	ft_print_unsint.c \
 
 
 
