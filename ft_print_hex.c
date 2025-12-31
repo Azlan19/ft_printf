@@ -6,24 +6,21 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:07:54 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 15:44:42 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 16:13:36 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 // format_specifier == 'x'
-int	ft_hexlen(int num)
+int	ft_hexlen(long num)
 {
 	int	counter;
 
 	counter = 0;
 	if (num < 0)
-	{
-		num = -num;
-		counter++;
-	}
-	while (num > 16)
+		num = 4294967296 + num;
+	while (num > 15)
 	{
 		num = num / 16;
 		counter++;
@@ -31,7 +28,7 @@ int	ft_hexlen(int num)
 	return (++counter);
 }
 
-void	ft_print_hex(int n, char format_specifier)
+void	ft_print_hex(long n, char format_specifier)
 {
 	char	nbr;
 	char	*base_16;
@@ -43,8 +40,7 @@ void	ft_print_hex(int n, char format_specifier)
 	nbr = 0;
 	if (n < 0)
 	{
-		write(1, "-", 1);
-		n = -n;
+		n = 4294967296 + n;
 	}
 	if (n >= 16)
 	{
