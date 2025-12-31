@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:07:54 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 13:48:27 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 15:01:19 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ int	ft_printstr(va_list *ap)
 	char	*str;
 
 	str = va_arg(*ap, char *);
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (str[i])
 	{
