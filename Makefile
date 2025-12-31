@@ -1,7 +1,10 @@
 NAME = libftprintf.a
 
 SRCS := \
-	ft_printf.c ft_print_args.c ft_print_char.c ft_print_num.c\
+	ft_printf.c \
+	ft_print_char.c \
+	ft_print_num.c \
+	ft_print_hex.c \
 
 
 
