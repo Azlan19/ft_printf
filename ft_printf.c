@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 17:03:46 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 17:56:50 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	format_checker(char fmt_spec, va_list *ap)
 	else if (fmt_spec == 's')
 		return (ft_printstr(ap));
 	else if (fmt_spec == 'p')
-		write(1, "p", 1);
+		return (ft_printptr(ap));
 	else if (fmt_spec == 'd' || fmt_spec == 'i' || fmt_spec == 'u')
 	{
 		n = va_arg(*ap, int);
