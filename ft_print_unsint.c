@@ -6,23 +6,20 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 16:21:33 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 16:23:24 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 16:47:39 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_unsintlen(long num)
+int	ft_unsintlen(unsigned int num)
 {
 	int	counter;
 
 	counter = 0;
-	if (num == -2147483648)
-		return (11);
 	if (num < 0)
 	{
-		num = -num;
-		counter++;
+		num = 4294967296 + num;
 	}
 	while (num > 9)
 	{
@@ -32,24 +29,18 @@ int	ft_unsintlen(long num)
 	return (++counter);
 }
 
-void	ft_printnum(int n)
+void	ft_printunsint(unsigned int n)
 {
 	char	nbr;
 
 	nbr = 0;
-	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
 	if (n < 0)
 	{
-		write(1, "-", 1);
-		n = -n;
+		n = 4294967296 + n;
 	}
 	if (n >= 10)
 	{
-		ft_printnum(n / 10);
+		ft_printunsint(n / 10);
 	}
 	nbr = (n % 10) + '0';
 	write(1, &nbr, 1);
