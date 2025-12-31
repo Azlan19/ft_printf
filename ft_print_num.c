@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 15:17:52 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 15:18:09 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 15:29:08 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ int	ft_intlen(int num)
 	int	counter;
 
 	counter = 0;
+	if (num == -2147483648)
+		return (11);
 	if (num < 0)
 	{
 		num = -num;
 		counter++;
 	}
-	while (num > 10)
+	while (num > 9)
 	{
 		num = num / 10;
 		counter++;
