@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:58:13 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 17:00:16 by oazlan           ###   ########.fr       */
+/*   Updated: 2025/12/31 17:02:12 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int		ft_printchar(va_list *ap);
 int		ft_printstr(va_list *ap);
 
 int		ft_intlen(int num);
-
 void	ft_printnum(int n);
 
 int		ft_hexlen(long num);
-
 void	ft_print_hex(long n, char fmt_spec);
 
 int		ft_unsintlen(unsigned int num);
