@@ -6,18 +6,16 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:58:13 by oazlan            #+#    #+#             */
-/*   Updated: 2026/01/17 19:25:19 by oazlan           ###   ########.fr       */
+/*   Updated: 2026/01/17 22:26:48 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-// Includes -- BEGIN
+# include "libft.h"
 # include <stdarg.h>
-# include <stdio.h>
 # include <unistd.h>
-// Includes -- END
 
 int		format_checker(char fmt_spec, va_list *ap);
 int		ft_printf(const char *fmt, ...);
