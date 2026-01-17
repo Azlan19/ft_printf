@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2025/12/31 17:56:50 by oazlan           ###   ########.fr       */
+/*   Updated: 2026/01/17 19:30:40 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	format_checker(char fmt_spec, va_list *ap)
 	}
 	else if (fmt_spec == 'x' || fmt_spec == 'X')
 	{
-		n = va_arg(*ap, int);
+		n = va_arg(*ap, unsigned int);
 		return (ft_printhex(n, fmt_spec), ft_hexlen(n));
 	}
 	else if (fmt_spec == '%')
