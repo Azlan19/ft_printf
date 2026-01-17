@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2026/01/17 19:30:40 by oazlan           ###   ########.fr       */
+/*   Updated: 2026/01/17 22:25:50 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	ft_printf(const char *fmt, ...)
 	va_end(ap);
 	return (counter);
 }
+
+// #include <stdio.h>
 
 // int	main(void)
 // {
