@@ -1,6 +1,8 @@
 NAME = libftprintf.a
 
-SRCS := \
+SRC_DIR = src
+
+SRCS = \
 	ft_printf.c \
 	ft_print_char.c \
 	ft_print_num.c \
@@ -8,13 +10,13 @@ SRCS := \
 	ft_print_unsint.c \
 	ft_print_ptr.c \
 
-
+SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJS = $(SRCS:.c=.o)
 
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I include
 RM = rm -f
 
 all: $(NAME)
