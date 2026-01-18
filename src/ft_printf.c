@@ -6,7 +6,7 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 19:47:20 by oazlan            #+#    #+#             */
-/*   Updated: 2026/01/18 11:51:17 by oazlan           ###   ########.fr       */
+/*   Updated: 2026/01/18 12:00:55 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ int	ft_printf(const char *fmt, ...)
 // 	normal_counter = 0;
 // 	my_counterr = 0;
 // 	printf("\n");
-// 	normal_counter = printf("normal printf = %u", -2147483644);
+// 	normal_counter = printf("normal printf = %s", "I hope this works");
 // 	printf("\n");
-// 	my_counterr = ft_printf("my ft_printf  = %u", -2147483644);
+// 	my_counterr = ft_printf("my ft_printf  = %s", "I hope this works");
 // 	printf("\n");
 // 	printf("\nnormal counter = %d", normal_counter);
 // 	printf("\nmy counter     = %d", my_counterr);
