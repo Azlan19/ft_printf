@@ -6,18 +6,16 @@
 /*   By: oazlan <oazlan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:53:15 by oazlan            #+#    #+#             */
-/*   Updated: 2025/11/01 22:15:16 by oazlan           ###   ########.fr       */
+/*   Updated: 2026/01/18 11:13:32 by oazlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-// Includes -- BEGIN
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-// Includes -- END
 
 int					ft_atoi(const char *nptr);
 void				ft_bzero(void *s, size_t n);
