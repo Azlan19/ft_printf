@@ -32,7 +32,7 @@ Include the header in your project:
 ```
 Compile your program with the library:
 ```bash
-gcc main.c libftprintf.a
+gcc main.c libftprintf.a -I include
 ```
 
 ### *Example*
